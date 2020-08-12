@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sharing website | Website chuyên chia sẽ trao đổi các mặc hàng đã qua sử dụng</title>
+    <meta name="keywords" content="share, product, household">
+    <meta charset="UTF-8">
+    <meta name="author" content="Truong NP">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="home-page.nav-bar.css">
+    <link rel="stylesheet" type="text/css" href="profile-page.css">
+    <link rel="stylesheet" type="text/css" href="footer.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tangerine" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="nav">
+            <div class="nav-wrapper">
+                <div class="content-wrapper">
+                    <div class="top-nav-content">
+                        <ul class="top-nav-login">
+                            <li>
+                                <a href="/notification/<%= user._id %>">
+                                    <span class="text login">Thông báo</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chat">
+                                    <span class="text login">Tin nhắn</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/share/<%= user._id %>">
+                                    <span class="text login">Share</span>
+                                </a>
+                            </li>
+                            <li class="profile">
+                                <a href="#">
+                                    <span class="text login">
+                                        <div class="placehold_user">
+                                        </div>
+                                        <div>
+                                            <%=user.local.name||user.facebook.name||user.google.name%>
+                                        </div>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a href="/profile/<%= user._id %>">Hồ sơ</a>
+                                            </li>
+                                            <li>
+                                                <a href="/shopping-cart/<%= user._id %>">Giỏ hàng</a>
+                                            </li>
+                                            <li>
+                                                <a href="/count/<%= user._id %>">Của tôi</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="/logout">Đăng xuất</a>
+                                            </li>
+                                        </ul>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="logo input">
+                    <div class="logo-input-wrapper">
+                        <div class="logo-input-content">
+                            <!-- <span class="text">Sharing</span> -->
+                            <a style="font-family: Tangerine,serif;font-size: 40px;color: white" href="/home">The Sharing</a>
+                        </div>
+                        <div class="logo-input-content">
+                            <form class="example" action="/home/search" method="GET">
+                                <input type="text" placeholder="Search.." name="q">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="logo-input-content">
+                            <a href="/shopping-cart/<%= user._id %>"><i class="fa fa-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="left">
+                <div class="ava-name">
+                    <div><a href="/profile/<%= user._id %>"><img src="https://picsum.photos/80" alt="ảnh đại diện"></a></div>
+                    <div>
+                        <span><%=user.local.name||user.facebook.name||user.google.name%></span>
+                    </div>
+                </div>
+                <% if(user.local.local) { %>
+                    <div class="notification">
+                        <span><a href="/profile/change_pass/<%=user._id%>" style="color: rgba(226,95,66,1)">Đổi mật khẩu</a></span>
+                    </div>
+                <% } %>
+                <div class="notification">
+                    <span><a href="/notification/<%= user._id %>" style="color: rgba(226,95,66,1)">Thông báo của bạn</a></span>
+                </div>
+                <div class="list-chat">
+                    <span><a href="/chat" style="color: rgba(226,95,66,1)">Danh sách trò chuyện</a></span>
+                </div>
+            </div>
+            <div class="right">
+                <div class="title wrap">
+                    <span>Đổi mật khẩu</span>
+                </div>
+                
+                <div class="info wrap">
+                    <form role="form" action="/profile/change_pass/<%=user._id%>" method="POST">
+                        <div class="form-control">
+                            <div class="title"><label class="text" for="">Nhập mật khẩu mới </label></div>
+                            <input type="password" name="pass1" id="" required>
+                        </div>
+                        <div class="form-control">
+                            <div class="title"><label class="text" for="">Nhập lại mật khẩu </label></div>
+                            <input type="password" name="pass2" id=""required>
+                        </div>
+                        
+                        <div class="form-control">
+                            <div class="title"><label class="text" for=""></label></div>
+                            <button  type="submit">Cập Nhật</button>
+                        </div>
+                    </form>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

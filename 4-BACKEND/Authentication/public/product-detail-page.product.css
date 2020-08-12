@@ -1,0 +1,310 @@
+.product-detail{
+    margin-top: 30px;
+}
+a{
+    text-decoration: none;
+}
+.container{
+    background-color: #fff;
+    max-width: 1200px;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+    margin: 0 auto 0;
+    display: flex;
+}
+
+.container .pane{
+    padding: 15px;
+}
+
+.right{
+    flex-grow:1;
+}
+
+.right.pane .name-product{
+    font-size: 20px;
+}
+
+.rating{
+    display: flex;
+}
+.rating div + div   {
+    border-left: 1px solid rgba(0,0,0,.14);
+}
+.rating div{
+    padding:0 5px;
+}
+
+.price{
+    padding: 15px 20px;
+    font-size: 30px;
+    color: rgba(235,80,46,1);
+    background-color: #fafafa;
+}
+.amount{
+    display: flex;
+    padding: 0 20px;
+    height: 30px;
+    align-items: center;
+}
+.row-contain{
+    margin-bottom: 20px;
+}
+
+.text{
+    color: rgba(94, 91, 91, 0.8);
+    font-size: 15px;
+}
+.amount .text{
+    flex-grow: 1;
+}
+.amount .button{
+    margin-right: 15px;
+    display: flex;
+}
+
+.amount .button .btn1{
+    height: 30px;
+    width: 30px;
+    border-radius: 3px 0 0 3px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.14);
+}
+
+.amount .button .btn2{
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgba(0,0,0,.14);    
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    background: #fff;
+}
+.amount .button input{
+    height: 26px;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-left: 0;
+    border-right: 0;
+    border-style: solid;
+    border-color: rgba(0,0,0,.14);
+    background: #fff;
+    cursor:auto;
+    text-align: center;
+    margin:0;
+}
+
+.row-contain.button{
+    padding: 0 20px;
+    height: 50px;
+}
+.row-contain.button button{
+    height: 50px;
+    margin-right: 10px;
+    background-color: rgba(235,80,46,1);
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+}
+
+.wrap-paragraph{
+    background-color: #fff;
+    max-width: 1200px;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+    margin: 30px auto 0;
+}
+.profile{
+    display: flex;
+    justify-content: flex-start;
+}
+.profile-container{
+    padding: 25px;
+    display: flex;
+    align-items: center;
+}
+.profile-container .user{
+    display: flex;
+    align-items: center;
+}
+.profile-container .user .placeholder_img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-image: url("https://picsum.photos/100");
+    margin-right: 20px;
+}
+.profile-container .user .user-info{
+    height: 100px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.profile-container .user .user-info .name{
+    font-size: 16px;
+}
+
+.profile-container .user .user-info .location{
+    font-size: 14px;
+    color: rgba(94, 91, 91, 0.8);
+}
+
+.profile-container .user .user-info .chat{
+    margin-top: 19.8px;
+}
+.profile-container .chat .btn1{
+    float: left;
+    width: 115px;
+    height: 45px;
+    background-color: rgba(235,80,46,1);
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+.user-details{
+    display: flex;
+    padding-left: 15px;
+    flex-grow: 1;
+}
+.user-details .column{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-right: 25px;
+}
+
+.user-details .column .number{
+    color: rgba(235,80,46,1);
+}
+
+.product_contain .details{
+    padding: 25px
+}
+
+.h{
+    font-size: 25px;
+    background-color: #fafafa;
+    padding: 10px;
+}
+.product_contain .details .contain{
+    margin: 30px 15px;
+    
+}
+.product_contain .details .contain div{
+    margin-top: 10px;
+    display: flex; 
+}
+.product_contain .details .contain label{
+    margin-right: 40px;
+    flex-basis: 110px;
+}
+.product_contain .details .contain span{
+    color: rgb(87, 87, 170);
+}
+.product_contain .details .form-input{
+    display: flex;
+    margin-top: 10px;
+}
+.product_contain .details .form-input .input{
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+}
+.product_contain .details .form-input input{
+    height: 30px;
+    width: 100%;
+    border: 1px;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: rgba(0,0,0,.14);
+    background: #fff;
+    cursor:auto;
+    text-align: left;
+    margin:0;
+}
+
+.product_contain .details .form-input button{
+    height: 34px;
+    flex-basis: 100px;
+    background-color: rgba(235,80,46,1);
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    margin-left: 10px;
+}
+
+.wrap-comment .contain-comment{
+    margin-top: 15px;
+}
+.wrap-comment .unit{
+    padding: 20px;
+    display: flex;
+    margin-bottom: 10px;
+}
+.wrap-comment .img{
+    margin-right: 15px;
+}
+.wrap-comment .img img{
+    border-radius: 50%;
+}
+.wrap-comment .unit-comment .uc{
+    margin-bottom: 10px;
+}
+.wrap-comment .unit-comment .name{
+    color: rgba(235,80,46,1);
+}
+.wrap-comment .unit-comment .location span{
+    font-size: 12px;
+}
+.left.pane{
+    position: relative;
+}
+.prev{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none; 
+}
+.next{
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    user-select: none;   
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+.numberText{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: rgb(255 254 254 / 69%)
+}
+.fade {
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DemoChat</title>
+    <script src="jquery.js"></script>
+
+    <script src="/socket.io/socket.io.js"></script>
+
+    <script>
+
+
+        var socket = io("http://localhost:3000")
+
+
+        socket.on("server-send-room", function (data) {
+            $("#room").append("<div>" + data.nd + "</div>");
+        });
+        socket.on("server-send-dki-thanhcong", function (data) {
+            $("#currentUser").html(data);
+            $("#loginForm").hide(2000);
+            $("#chatForm").show(1000);
+        })
+
+        socket.on("server-send-danhsach-Users", function (data) {
+            $("#boxContent").html("");
+            data.forEach(function (i) {
+                $("#boxContent").append("<div class='user'>" + i + "</div>");
+            })
+        });
+
+        socket.on("server-send-message", function (data) {
+            $("#ListMessage").append("<span >" + "("+data.time+")" + "</span>");
+            $("#ListMessage").append("<div >" + data.un + ": " + data.nd + "</div>");
+
+        });
+
+        socket.on("ai-do-dang-go-chu", function (data) {
+            $("#thongbao").html("<img width='20px' src='giphy.gif'>" + data);
+        });
+        socket.on("ai-do-STOP-go-chu", function () {
+            $("#thongbao").html("");
+        });
+
+
+        $(document).ready(function () {
+
+            socket.emit("tao-room", $("<%=partnerid%>").selector + $("<%=userid%>").selector)
+            socket.emit("client-send-name", $("<%=user.facebook.name||user.local.name||user.google.name%>").selector);
+            $("#btnSend").click(function () {
+                socket.emit("user-send-message", $("#message").val());
+
+            })
+            $("#message").focusin(function(){
+            socket.emit("toi-dang-go-chu");
+   });
+
+
+
+        })
+    </script>
+    <link rel="stylesheet" type="text/css" href="./style/chat.css" />
+    <title>Sharing website | Website chuyên chia sẽ trao đổi các mặc hàng đã qua sử dụng</title>
+    <meta name="keywords" content="share, product, household">
+    <meta charset="UTF-8">
+    <meta name="author" content="Truong NP">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../style/home-page.nav-bar.css">
+    <link rel="stylesheet" type="text/css" href="../style/profile-page.css">
+    <link rel="stylesheet" type="text/css" href="../style/footer.css">
+</head>
+
+<body>
+    <div class="nav">
+        <div class="nav-wrapper">
+            <div class="content-wrapper">
+                <div class="top-nav-content">
+                    <ul class="top-nav-login">
+                        <li>
+                            <a href="#">
+                                <span class="text login">Thông báo</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="text login">Trợ giúp</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="text login">Đăng kí</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="text login">Đăng nhập</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="logo input">
+                <div class="logo-input-wrapper">
+                    <div class="logo-input-content logo">
+                        <span class="text">Sharing</span>
+                    </div>
+                    <div class="logo-input-content">
+                        <form class="example">
+                            <input type="text" placeholder="Search.." name="search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                          </form>
+                    </div>  
+                    <div class="logo-input-content">
+                        <i class="fa fa-shopping-cart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main">
+        <div id="wrapper">
+            <div class="chatForm">
+                <div id="right">
+                    <div id="sayHi" class="row">
+                        <div class="img"><img src="https://picsum.photos/60" alt="ảnh đại diện"></div>
+                        <div class="content">
+                            <span class="name border" id="currentUser">Tra</span>
+                            <span class="name">Chat</span>
+                        </div>
+                        <input type="button" id="btnLogout" value="Thoát">
+                    </div>
+                    <div class="overflow">
+                        
+                        <!-- <div id="ListMessage" class="ListMessage">
+                            <img class="img"src="https://picsum.photos/25" alt="">
+                            <span class="name">Tra</span>
+                            <span>Ê faf fajfa fafaifiif faifia fafafa fafjadf jdafafa f afafafaf a àfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff vdfadfafhaf ầ fasfjaf a fa f à á fsas f à ầ  a</span>
+                        </div> -->
+                        
+                        <div id="ListMessage" class="ListMessage">
+                            <% data.forEach(function(item){ %>
+                            <span>(<%=item.time%>)</span>
+                            <div><%=item.sender%>: <%=item.data%></div>
+        
+                            <%})%>
+                        </div>
+                    </div>
+                    <div id="thongbao"></div>
+                    <div class="row send">
+                        <div class="wrap-send">
+                            <input class="message"type="text" id="message" />
+                            <input type="button" id="btnSend" value="Send">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/rexeze/formatTimeStamp/src/index.min.js"></script>
+</body>
+
+</html>

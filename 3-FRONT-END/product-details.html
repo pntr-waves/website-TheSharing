@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sharing website | Website chuyên chia sẽ trao đổi các mặc hàng đã qua sử dụng</title>
+        <meta name="keywords" content="share, product, household">
+        <meta charset="UTF-8">
+        <meta name="author" content="Truong NP">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="./style/home-page.nav-bar.css">
+        <link rel="stylesheet" type="text/css" href="./style/product-detail-page.product.css">
+        <link rel="stylesheet" type="text/css" href="./style/footer.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="nav">
+                <div class="nav-wrapper">
+                    <div class="content-wrapper">
+                        <div class="top-nav-content">
+                            <ul class="top-nav-login">
+                                <li>
+                                    <a href="#">
+                                        <span class="text login">Thông báo</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text login">Trợ giúp</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text login">Đăng kí</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <span class="text login">Đăng nhập</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="logo input">
+                        <div class="logo-input-wrapper">
+                            <div class="logo-input-content">
+                                <span class="text">Sharing</span>
+                            </div>
+                            <div class="logo-input-content">
+                                <form class="example">
+                                    <input type="text" placeholder="Search.." name="search">
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                  </form>
+                            </div>  
+                            <div class="logo-input-content">
+                                <i class="fa fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-detail">
+                <div class="container">
+                    <div class="left pane">
+                        <div class="main-img fade">
+                            <div class="numberText">1/3</div>
+                            <img src="https://cf.shopee.vn/file/1dda26e94097e56e117221768604dbf9" alt="image-product">
+                        </div>
+                        <div class="main-img fade">
+                            <div class="numberText">2/3</div>
+                            <img src="https://cf.shopee.vn/file/a26eb8447e8be499d25478737cf96918 " alt="image-product">
+                        </div>
+                        <div class="main-img fade">
+                            <div class="numberText">3/3</div>
+                            <img src="https://cf.shopee.vn/file/8e08b1d0f40ccd4b2e6989db07dea8ec " alt="image-product">
+                        </div>
+                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    </div>
+                    <div class="right pane">
+                        <div class="name-product row-contain">
+                            GIÀY SNEAKER
+                        </div>
+                        <div class="rating row-contain">
+                            <div>
+                                <span>Bình luận</span>
+                            </div>
+                            <div>Đã bán</div>
+                        </div>
+                        <div class="row-contain price">
+                            50000000
+                        </div>
+                        <div class="amount row-contain">
+                            <div class="text">Số Lượng</div>
+                            <div class="button">
+                                <button id="btn1" class="btn1">-</button>
+                                <input id="sl" type="text" value="1">
+                                <button id="btn2" class="btn2">+</button>
+                            </div>
+                            <div class="text">Sản phẩm hiện có</div>
+                        </div>
+                        <div class="row-contain button">
+                            <button class="btn1">Thêm Vào Giỏ Hàng</button>
+                            <button class="btn2">Mua Ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="profile wrap-paragraph">
+                <div class="profile-container">
+                    <div class="user">
+                        <a href="#" alt="shope">
+                            <div class="placeholder_img">
+                            </div>
+                        </a>
+                        <div class="user-info">
+                            <div class="name">Anh em cây khế</div>
+                            <div class="location">TP Hồ Chính Minh</div>
+                        </div>
+                        <div class="chat">
+                            <button class="btn1">Chat Ngay</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="product_contain wrap-paragraph ">
+                <div class="details">
+                    <div class="h">MÔ TẢ SẢN PHẨM</div>
+                </div>
+            </div>
+            <div class="product_contain wrap-paragraph ">
+                <div class="details">
+                    <div class="h">BÌNH LUẬN VỀ SẢN PHẨM</div>
+                    <div class="form-input">
+                        <div class="input">
+                            <input type="text" value="" placeholder="Bình luận của bạn về sản phẩm">
+                        </div>
+                        <button>Gửi Bình Luận</button>
+                    </div>
+                </div>
+            </div>
+            <div class="comment wrap-paragraph">
+                <div class="wrap-comment">
+                    <div class="h">ĐÁNH GIÁ SẢN PHẨM</div>
+                    <div class="contain-comment">
+                        <div class="unit">
+                            <div class="img">
+                                <a href="#">
+                                    <img src="https://picsum.photos/50" alt="user_name">
+                                </a>
+                            </div>
+                            <div class="unit-comment">
+                                <div class="uc name">Anh em cây khế</div>
+                                <div class="uc user-text">
+                                    <span>
+                                        Ưng lắm ạ nhưng ship hơi lâu:(( tận 12 ngày mới có hàng mong shop ship nhanh hơn xíu ạ
+                                        Ưng lắm ạ nhưng ship hơi lâu:(( tận 12 ngày mới có hàng mong shop ship nhanh hơn xíu ạ
+                                        Ưng lắm ạ nhưng ship hơi lâu:(( tận 12 ngày mới có hàng mong shop ship nhanh hơn xíu ạ
+                                        Ưng lắm ạ nhưng ship hơi lâu:(( tận 12 ngày mới có hàng mong shop ship nhanh hơn xíu ạ
+                                    </span>
+                                </div>
+                                <div class="uc location">
+                                    <span class="text">22-12-2020 23:21</span>
+                                    <span class="text">TP Hồ Chí Minh</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="./script/product-detail-page.js"></script>
+    </body>
+          <!-- Site footer -->
+    <footer class="site-footer">
+    <div class="container-footer">
+    <div class="row-footer">
+        <div class="col-footer">
+            <h6>Categories</h6>
+            <ul class="footer-links">
+                <li><a href="">Điện tử</a></li>
+                <li><a href="">Giày dép</a></li>
+                <li><a href="">Phụ kiện</a></li>
+                <li><a href="">Quần áo</a></li>
+                <li><a href="">Linh tinh</a></li>
+            </ul>
+        </div>
+        <div class="col-footer">
+        <h6>Quick Links</h6>
+        <ul class="footer-links">
+            <li><a href="">About Us</a></li>
+            <li><a href="">Contact Us</a></li>
+            <li><a href="">Contribute</a></li>
+            <li><a href="">Privacy Policy</a></li>
+            <li><a href="">Sitemap</a></li>
+        </ul>
+        </div>
+    </div>
+    <hr>
+    </div>
+    <div class="container-footer">
+    <div class="row-footer">
+        <div class="col-footer">
+            <p class="copyright-text">Copyright &copy; 2017 All Rights Reserved by 
+            </p>
+        </div>
+        <div class="col-footer">
+            <ul class="social-icons">
+                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+            </ul>
+        </div>
+    </div>
+    </footer>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sharing website | Website chuyên chia sẽ trao đổi các mặc hàng đã qua sử dụng</title>
+        <meta name="keywords" content="share, product, household">
+        <meta charset="UTF-8">
+        <meta name="author" content="Truong NP">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="home-page.nav-bar.css">
+        <link rel="stylesheet" type="text/css" href="profile-page.css">
+        <link rel="stylesheet" type="text/css" href="style/footer.css">
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tangerine" />
+    </head>
+    <body>
+        <div class="main">
+            <div class="nav">
+                <div class="nav-wrapper">
+                    <div class="content-wrapper">
+                        <div class="top-nav-content">
+                            <ul class="top-nav-login">
+                                <li>
+                                    <a href="/notification/<%= user._id %>">
+                                        <span class="text login">Thông báo</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/chat">
+                                        <span class="text login">Tin nhắn</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/share/<%= user._id %>">
+                                        <span class="text login">Share</span>
+                                    </a>
+                                </li>
+                                <li class="profile">
+                                    <a href="#">
+                                        <span class="text login">
+                                            <div class="placehold_user">
+                                            </div>
+                                            <div>
+                                                <%=user.local.name||user.facebook.name||user.google.name%>
+                                            </div>
+                                            <ul class="dropdown">
+                                                <li>
+                                                    <a href="/profile/<%= user._id %>">Hồ sơ</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/shopping-cart/<%= user._id %>">Giỏ hàng</a>
+                                                </li>
+                                                <li>
+                                                    <a href="/count/<%= user._id %>">Của tôi</a>
+                                                </li>
+                                                
+                                                <li>
+                                                    <a href="/logout">Đăng xuất</a>
+                                                </li>
+                                            </ul>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="logo input">
+                        <div class="logo-input-wrapper">
+                            <div class="logo-input-content">
+                                <!-- <span class="text">Sharing</span> -->
+                                <a style="font-family: Tangerine,serif;font-size: 40px;color: white" href="/home">The Sharing</a>
+                            </div>
+                            <div class="logo-input-content">
+                                <form class="example" action="/home/search" method="GET">
+                                    <input type="text" placeholder="Search.." name="q">
+                                    <button type="submit"><i class="fa fa-search"></i></button>
+                                </form>
+                            </div>
+                            <div class="logo-input-content">
+                                <a href="/shopping-cart/<%= user._id %>"><i class="fa fa-shopping-cart"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="left">
+                    <div class="ava-name">
+                        <div><img src="https://picsum.photos/80" alt="ảnh đại diện"></div>
+                        <div>
+                            <span><%=user.local.name||user.facebook.name||user.google.name%></span>
+                        </div>
+                    </div>
+                    <% if(user.local.local) { %>
+                    <div class="notification">
+                        <span><a href="/profile/change_pass/<%=user._id%>" style="color: rgba(226,95,66,1)">Đổi mật khẩu</a></span>
+                    </div>
+                    <% } %>
+                    <div class="notification">
+                        <span><a href="/notification/<%= user._id %>" style="color: rgba(226,95,66,1)">Thông báo của bạn</a>></span>
+                    </div>
+                    <div class="list-chat">
+                        <span><a href="/chat" style="color: rgba(226,95,66,1)">Danh sách trò chuyện</a></span>
+                    </div>
+                </div>
+                <div class="right">
+                    <div class="title wrap">
+                        <span>Thông Tin Đồ Dùng</span>
+                    </div>
+                    <div class="info wrap">
+                        <form action="/share/<%= user._id %>" method="post" enctype="multipart/form-data">
+                            <div class="form-control">
+                                <div class="title"><label class="text" for="">Tên sản phẩm</label></div>
+                                <input type="text" name="name" required>
+                            </div>
+                            <div class="form-control">
+                                <div class="title"><label class="text" for="">Miêu tả</label></div>
+                                <input type="text" name="decri" required>
+                            </div>
+                            <div class="form-control">
+                                <div class="title"><label class="text" for="">Giá</label></div>
+                                <input type="text" name="price" required>
+                            </div>
+                            <div class="form-control">
+                                <div class="title"><label class="text" for="">Số lượng</label></div>
+                                <input type="text" name="qty" required>
+                            </div>
+                            <div class="form-control vt">
+                                <div class="title">
+                                    <label class="text" for="">Vị trí</label>
+                                </div>
+                                <div class="filter-price custom-select">
+                                   
+                                    
+                                    <select class="price-dropdown" name="location" required>
+                                        <option name="" value="0" selected>Chọn vị trí</option>
+                                        <option value="An Giang">An Giang
+                                        <option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu
+                                        <option value="Bắc Giang">Bắc Giang
+                                        <option value="Bắc Kạn">Bắc Kạn
+                                        <option value="Bạc Liêu">Bạc Liêu
+                                        <option value="Bắc Ninh">Bắc Ninh
+                                        <option value="Bến Tre">Bến Tre
+                                        <option value="Bình Định">Bình Định
+                                        <option value="Bình Dương">Bình Dương
+                                        <option value="Bình Phước">Bình Phước
+                                        <option value="Bình Thuận">Bình Thuận
+                                        <option value="Bình Thuận">Bình Thuận
+                                        <option value="Cà Mau">Cà Mau
+                                        <option value="Cao Bằng">Cao Bằng
+                                        <option value="Đắk Lắk">Đắk Lắk
+                                        <option value="Đắk Nông">Đắk Nông
+                                        <option value="Điện Biên">Điện Biên
+                                        <option value="Đồng Nai">Đồng Nai
+                                        <option value="Đồng Tháp">Đồng Tháp
+                                        <option value="Đồng Tháp">Đồng Tháp
+                                        <option value="Gia Lai">Gia Lai
+                                        <option value="Hà Giang">Hà Giang
+                                        <option value="Hà Nam">Hà Nam
+                                        <option value="Hà Tĩnh">Hà Tĩnh
+                                        <option value="Hải Dương">Hải Dương
+                                        <option value="Hậu Giang">Hậu Giang
+                                        <option value="Hòa Bình">Hòa Bình
+                                        <option value="Hưng Yên">Hưng Yên
+                                        <option value="Khánh Hòa">Khánh Hòa
+                                        <option value="Kiên Giang">Kiên Giang
+                                        <option value="Kon Tum">Kon Tum
+                                        <option value="Lai Châu">Lai Châu
+                                        <option value="Lâm Đồng">Lâm Đồng
+                                        <option value="Lạng Sơn">Lạng Sơn
+                                        <option value="Lào Cai">Lào Cai
+                                        <option value="Long An">Long An
+                                        <option value="Nam Định">Nam Định
+                                        <option value="Nghệ An">Nghệ An
+                                        <option value="Ninh Bình">Ninh Bình
+                                        <option value="Ninh Thuận">Ninh Thuận
+                                        <option value="Phú Thọ">Phú Thọ
+                                        <option value="Quảng Bình">Quảng Bình
+                                        <option value="Quảng Bình">Quảng Bình
+                                        <option value="Quảng Ngãi">Quảng Ngãi
+                                        <option value="Quảng Ninh">Quảng Ninh
+                                        <option value="Quảng Trị">Quảng Trị
+                                        <option value="Sóc Trăng">Sóc Trăng
+                                        <option value="Sơn La">Sơn La
+                                        <option value="Tây Ninh">Tây Ninh
+                                        <option value="Thái Bình">Thái Bình
+                                        <option value="Thái Nguyên">Thái Nguyên
+                                        <option value="Thanh Hóa">Thanh Hóa
+                                        <option value="Thừa Thiên Huế">Thừa Thiên Huế
+                                        <option value="Tiền Giang">Tiền Giang
+                                        <option value="Trà Vinh">Trà Vinh
+                                        <option value="Tuyên Quang">Tuyên Quang
+                                        <option value="Vĩnh Long">Vĩnh Long
+                                        <option value="Vĩnh Phúc">Vĩnh Phúc
+                                        <option value="Yên Bái">Yên Bái
+                                        <option value="Phú Yên">Phú Yên
+                                        <option value="Tp.Cần Thơ">Tp.Cần Thơ
+                                        <option value="Tp.Đà Nẵng">Tp.Đà Nẵng
+                                        <option value="Tp.Hải Phòng">Tp.Hải Phòng
+                                        <option value="Tp.Hà Nội">Tp.Hà Nội
+                                        <option value="TP  HCM">TP HCM
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-control vt">
+                                <div class="title">
+                                    <label class="text" for="">Danh mục</label>
+                                </div>
+                                <div class="filter-price">
+                                    <select class="price-dropdown" name="tags" required>
+                                        <option name="" value="0" selected>Chọn danh mục</option>
+                                        <option name="sach" value="sach">Sách</option>
+                                        <option name="thoitrang" value="thoitrang">Thời trang</option>
+                                        <option name="dientu" value="dientu">Điện tử</option>
+                                        <option name="giaydep" value="giaydep">Giày dép</option>
+                                        <option name="linhtinh" value="linhtinh">Linh tinh</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-control">
+                                <div class="title">
+                                    <label class="text" for="">Hình ảnh</label>
+                                </div>
+                                <label class="file-wrap">
+                                    <input class="file" type="file" id="file" aria-label="File browser example" name="avatar" required>
+                                    <span class="file-custom"></span>
+                                  </label>
+                            </div>
+                            <div class="form-control">
+                                    <div class="title">
+                                        <label class="text" for="">Hình ảnh</label>
+                                    </div>
+                                    <label class="file-wrap">
+                                        <input class="file" type="file" id="file" aria-label="File browser example" name="avatar2" required>
+                                        <span class="file-custom"></span>
+                                      </label>
+                            </div>
+                            <div class="form-control">
+                                        <div class="title">
+                                            <label class="text" for="">Hình ảnh</label>
+                                        </div>
+                                        <label class="file-wrap">
+                                            <input class="file" type="file" id="file" aria-label="File browser example" name="avatar3" required>
+                                            <span class="file-custom"></span>
+                                          </label>
+                            </div>
+                            <div class="form-control">
+                                <div class="title"><label class="text" for=""></label></div>
+                                <button style="background: rgba(226,95,66,1);color: white">Cập nhật</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

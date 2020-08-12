@@ -1,0 +1,119 @@
+.container{
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.name-page{
+    background-color: rgba(226,95,66,1);
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+    padding: 15px;
+    color: #fff;
+    font-size: 20px;
+}
+.name-page span + span{
+    border-left: 1px solid #fff;
+    padding: 4px;
+}
+.wrap{
+    background-color: #fff;
+    border-radius: 3px; 
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+    margin-top: 15px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
+.title .text{
+    color: rgba(94, 91, 91, 0.8);
+    background-color: #fff;
+    border: 0;
+    padding: 0;
+    font-size: 17px;
+}
+.title input.text{
+    margin-top: 3px;
+    cursor: pointer;
+}
+.title div{
+    flex-basis: 163px;
+}
+.title.count div{
+    flex-basis: 219px;
+}
+.title .product-name{
+    flex-grow: 1;
+}
+.title .flex{
+    display: flex;
+    align-items: center;
+}
+.title .flex div{
+    flex-basis: 80px;
+}
+.title .flex .name{
+    margin-left: 15px;
+    flex-grow: 1;
+}
+.pay{
+    justify-content: flex-end;
+}
+.pay div{
+    margin-left: 20px;
+}
+.pay div + div{
+    width: 300px;
+}
+.pay button{
+    width: 100%;
+    height: 50px;
+    margin-right: 10px;
+    background-color: rgba(235,80,46,1);
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+}
+.pay .text{
+    color: rgba(94, 91, 91, 0.8);
+    font-size: 20px;
+}
+.pay .number{
+    color: rgba(235,80,46,1);
+    font-size: 28px;
+}
+/* css cho update số lượng */
+.amount .button{
+    display: flex;
+}
+
+.amount .button .btn1{
+    height: 30px;
+    width: 30px;
+    border-radius: 3px 0 0 3px;
+    cursor: pointer;
+    background: #fff;
+    border: 1px solid rgba(0,0,0,.14);
+}
+
+.amount .button .btn2{
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgba(0,0,0,.14);    
+    border-radius: 0 3px 3px 0;
+    cursor: pointer;
+    background: #fff;
+}
+.amount .button input{
+    height: 26px;
+    width: 70px;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-left: 0;
+    border-right: 0;
+    border-style: solid;
+    border-color: rgba(0,0,0,.14);
+    background: #fff;
+    cursor:auto;
+    text-align: center;
+    margin:0;
+}

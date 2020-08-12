@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sharing website | Website chuyên chia sẽ trao đổi các mặc hàng đã qua sử dụng</title>
+    <meta name="keywords" content="share, product, household">
+    <meta charset="UTF-8">
+    <meta name="author" content="Truong NP">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="home-page.nav-bar.css">
+    <link rel="stylesheet" type="text/css" href="product-detail-page.product.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tangerine" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="nav">
+            <div class="nav-wrapper">
+                <div class="content-wrapper">
+                    <div class="top-nav-content">
+                        <ul class="top-nav-login">
+                            <li>
+                                <a href="/notification/<%= user._id %>">
+                                    <span class="text login">Thông báo</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chat">
+                                    <span class="text login">Tin nhắn</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/share/<%= user._id %>">
+                                    <span class="text login">Share</span>
+                                </a>
+                            </li>
+                            <li class="profile">
+                                <a href="#">
+                                    <span class="text login">
+                                        <div class="placehold_user">
+                                        </div>
+                                        <div>
+                                            <%=user.local.name||user.facebook.name||user.google.name%>
+                                        </div>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a href="/profile/<%= user._id %>">Hồ sơ</a>
+                                            </li>
+                                            <li>
+                                                <a href="/shopping-cart/<%= user._id %>">Giỏ hàng</a>
+                                            </li>
+                                            <li>
+                                                <a href="/count/<%= user._id %>">Của tôi</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="/logout">Đăng xuất</a>
+                                            </li>
+                                        </ul>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="logo input">
+                    <div class="logo-input-wrapper">
+                        <div class="logo-input-content">
+                            <a style="font-family: Tangerine,serif;font-size: 40px;color: white" href="/home">The
+                                Sharing</a>
+                        </div>
+                        <div class="logo-input-content">
+                            <form class="example" action="/home/search" method="GET">
+                                <input type="text" placeholder="Search.." name="q">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="logo-input-content">
+                            <a href="/shopping-cart/<%= user._id %>"><i class="fa fa-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-detail">
+            <div class="container">
+                <div class="left pane">
+                    <%if(!aaa.urlImage2&&!aaa.urlImage3){%>
+                    <div class="main-img fade">
+                        <div class="numberText">1/1</div>
+                        <img src="<%= aaa.urlImage %>" alt="image-product" style="width: 450px;height:450px">
+                    </div>
+                    <%}%>
+                   
+                    <%if(aaa.urlImage2&&aaa.urlImage3){%>
+                    <div class="main-img fade">
+                        <div class="numberText">1/3</div>
+                        <img src="<%= aaa.urlImage %>" alt="image-product" style="width: 450px;height:450px">
+                    </div>
+                    <div class="main-img fade">
+                        <div class="numberText">2/3</div>
+                        <img src="<%= aaa.urlImage2 %>" alt="image-product" style="width: 450px;height:450px">
+                    </div>
+
+                    <div class="main-img fade">
+                        <div class="numberText">3/3</div>
+                        <img src="<%= aaa.urlImage3 %>" alt="image-product" style="width: 450px;height:450px">
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                    <%}%>
+                </div>
+                <div class="right pane">
+
+                    <div class="name-product row-contain">
+                        <%=aaa.name%>
+                </div>
+                <div class="rating row-contain">
+                    <div><%=aaa.location%></div>
+                    <div><%=aaa.view%> views</div>
+                </div>
+                <div class="row-contain price">
+                    <%=aaa.price.toLocaleString()%> VNĐ
+                </div>
+                <form action="/details/<%= aaa._id %>/<%= user._id %>" method="POST">
+                    <div class="amount row-contain">
+                        <div class="text">Số Lượng</div>
+                        <div class="button">
+                            <button type="button" id="btn1" class="btn1">-</button>
+                            <input id="sl" type="text" value="1" max="<%=aaa.qty%>" name="sluong">
+                            <button type="button" id="btn2" class="btn2">+</button>
+                        </div>
+                        <div class="text">Sản phẩm hiện có: <%=aaa.qty%></div>
+                    </div>
+
+                    <div class="row-contain button">
+                        <button class="btn1" type="submit">Thêm Vào Giỏ
+                            Hàng</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile wrap-paragraph">
+        <div class="profile-container">
+            <div class="user">
+                <a href="#" alt="shope">
+                    <div class="placeholder_img">
+                    </div>
+                </a>
+                <div class="user-info">
+                    <div class="name"><%=aaa.userName%></div>
+                    <div class="location"><%=aaa.location%></div>
+                </div>
+                <div class="chat">
+                    <button class="btn1"><a href="/chat/<%=aaa.userId%><%=user._id%>" style="color: white">Chat
+                            Ngay</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="product_contain wrap-paragraph ">
+        <div class="details">
+            <div class="h">MÔ TẢ SẢN PHẨM</div>
+            <%=aaa.decri%>
+        </div>
+    </div>
+    <div class="product_contain wrap-paragraph wrap-comment">
+        <div class="details">
+            <div class="h">BÌNH LUẬN VỀ SẢN PHẨM</div>
+            <form action="/detail/<%= aaa._id %>/<%= user._id %>" method="post">
+                <div class="form-input">
+
+                    <div class="input">
+                        <input type="text" value="" placeholder="Bình luận của bạn về sản phẩm" name="comment">
+                    </div>
+                    <button type="submit">Gửi Bình Luận</button>
+
+                </div>
+            </form>
+            <% bbb.forEach(function(item) { %>
+            <div class="contain-comment">
+                <div class="unit">
+                    <div class="img">
+                        <a href="#">
+                            <img src="https://picsum.photos/50" alt="user_name">
+                        </a>
+                    </div>
+                    <div class="unit-comment">
+                        <div class="uc name"><%= item.userName %></div>
+                        <div class="uc user-text">
+                            <span>
+                                <%= item.text %>
+                            </span>
+                        </div>
+                        <div class="uc location">
+                            <span class="text"><%=item.time%></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <% }); %>
+        </div>
+    </div>
+
+    </div>
+    <script>
+        // khai báo
+        var limit = document.getElementById("sl").max;
+        var input = document.getElementById("sl");
+        var bt1 = document.getElementById("btn1");
+        var bt2 = document.getElementById("btn2");
+        var prev = document.getElementsByClassName("prev");
+        var next = document.getElementsByClassName("next");
+        // slice show
+        var slideIndex = 1;
+        showSlices(slideIndex);
+        // thao tác
+        // click vào nút trừ
+        bt1.addEventListener("click", bt1function);
+        // click vào nút cộng
+        bt2.addEventListener("click", bt2function);
+        // click vao mui ten trái phải
+
+
+        //thực thi
+        function bt1function() {
+            if (input.value == 1) {
+                alert("Giá trị tối thiểu là 1");
+            }
+            else {
+                input.value--;
+            }
+        }
+        function bt2function() {
+            if (input.value < limit) {
+                input.value++;
+            }
+
+        }
+        // function show slices
+        function showSlices(n) {
+            var slide = document.getElementsByClassName("main-img");
+            console.log(slide);
+            if (n > slide.length) {
+                slideIndex = 1;
+            }
+            if (n < 1) {
+                slideIndex = slide.length;
+            }
+            for (var i = 0; i < slide.length; i++) {
+                slide[i].style.display = "none";
+            }
+            slide[slideIndex - 1].style.display = "block";
+        }
+        function plusSlides(n) {
+            showSlices(slideIndex += n);
+        }
+    </script>
+</body>
+
+</html>

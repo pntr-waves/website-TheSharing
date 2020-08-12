@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sharing website | Website chuyên chia sẽ trao đổi các mặc hàng đã qua sử dụng</title>
+    <meta name="keywords" content="share, product, household">
+    <meta charset="UTF-8">
+    <meta name="author" content="Truong NP">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="home-page.nav-bar.css">
+    <link rel="stylesheet" type="text/css" href="home-page.new-product.css">
+    <link rel="stylesheet" type="text/css" href="phantrang.css">
+    <link rel="stylesheet" type="text/css" href="footer.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tangerine" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="nav">
+            <div class="nav-wrapper">
+                <div class="content-wrapper">
+                    <div class="top-nav-content">
+                        <ul class="top-nav-login">
+                            <li>
+                                <a href="/login">
+                                    <span class="text login">Thông báo</span>
+                                </a>
+                            </li>
+                            <!-- <li>
+                                <a href="#">
+                                    <span class="text login">Trợ giúp</span>
+                                </a>
+                            </li> -->
+                            <li>
+                                <a href="/signup">
+                                    <span class="text login">Đăng kí</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/login">
+                                    <span class="text login">Đăng nhập</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="logo input">
+                    <div class="logo-input-wrapper">
+                        <div class="logo-input-content">
+                            <a style="font-family: Tangerine,serif;font-size: 40px;color: white" href="/">The Sharing</a>
+                        </div>
+                        <div class="logo-input-content">
+                            <form class="example" action="/search" method="GET">
+                                <input type="text" placeholder="Search.." name="q">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="logo-input-content">
+                            <a href="/login"><i class="fa fa-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%if(currentPage==1||currentPage==""){%>
+        <%if(temp==0){%>
+        <div class="main-container">
+            <div class="filter">
+                <div class="wrap">
+                    <span>Sắp xếp theo</span>
+                    <div class="option">
+                        <div><a href="/filter_view" style="color: black">View</a></div>
+                        <div><a href="/filter_comment" style="color: black">Tương tác</a></div>
+                        <!-- <div><a >Bán chạy</a></div> -->
+                        <div class="filter-price">
+                            <span>Danh mục</span>
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            <ul class="price-dropdown">
+                                <li>
+                                    <span><a
+                                            href="/cat=sach">Sách</a></span>
+                                </li>
+                                <li>
+                                    <span><a href="/cat=thoitrang">Thời trang</a></span>
+                                </li>
+                                <li>
+                                    <span><a href="/cat=dientu">Điện tử</a></span>
+                                </li>
+                                <li>
+                                    <span><a href="/cat=giaydep">Giày dép</a></span>
+                                </li>
+                                <li>
+                                    <span><a href="/cat=linhtinh">Linh tinh</a></span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="filter-price">
+                            <span>Giá</span>
+                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            <ul class="price-dropdown">
+                                <li>
+                                    <span><a
+                                            href="/price=tang">Tăng dần</a></span>
+                                </li>
+                                <li>
+                                    <span><a href="/price=giam">Giảm dần</a></span>
+                                </li>
+                               
+                            </ul>
+                        </div>
+                        <div>
+                            <form class="location" action="/location" method="GET">
+                                <input type="text" placeholder="Vị trí" name="q">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="title">
+                <span>CÁC SẢN PHẨM MỚI NHẤT</span>
+            </div>
+            <div class="new-product">
+                <%products.forEach(function(item){%>
+                <div class="product-item">
+                    <div class="image-product">
+                        <a href="/detail_/<%= item._id %>">
+                            <img src="<%= item.urlImage %>" alt="image-product" style="width: 200px;height:200px">
+                        </a>
+                    </div>
+                    <div class="detail-product">
+                        <div class="name-product">
+                            <span><%= item.name %></span>
+                        </div>
+                        <div class="price-product">
+                            <span class="number"><%= item.price.toLocaleString() %> VNĐ</span>
+                        </div>
+                        <div class="information">
+                            <div class="view text">
+                                <%= item.view %> views
+                            </div>
+                            <div class="between"></div>
+                            <div class="location text">
+                                <%= item.location %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%})%>
+            </div>
+            <div class="title">
+                <span>TẤT CẢ SẢN PHẨM</span>
+            </div>
+            <div class="new-product">
+                <%aaa.forEach(function(item){%>
+                <div class="product-item">
+                    <div class="image-product">
+                        <a href="/detail_/<%= item._id %>">
+                            <img src="<%= item.urlImage %>" alt="image-product" style="width: 200px;height:200px">
+                        </a>
+                    </div>
+                    <div class="detail-product">
+                        <div class="name-product">
+                            <span><%= item.name %></span>
+                        </div>
+                        <div class="price-product">
+                            <span class="number"><%= item.price.toLocaleString() %> VNĐ</span>
+                        </div>
+                        <div class="information">
+                            <div class="view text">
+                                <%= item.view %> views
+                            </div>
+                            <div class="between"></div>
+                            <div class="location text">
+                                <%= item.location %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <%})%>
+            </div>
+            <div class="page-number">
+                <%if(currentPage==1){%>
+                <button class="phantrang" hidden><a>&lsaquo;</a></button>
+                <%}else{%>
+                <a href="/?page=<%=currentPage-1%>"><button class="phantrang">&lsaquo;</button></a>
+                <%}%>
+                    <a href="/?page=1"><button class="phantrang" id="demo" onclick="myFunction()">1</button></a>
+                    <a href="/?page=2"><button class="phantrang" id="demo1" onclick="myFunction1()">2</button></a>
+                    <a href="/?page=<%=currentPage+1%>"><button class="phantrang">&rsaquo;</a></button></a>
+            </div>
+        </div>
+        <%}else{%>
+        <div class="main-container">
+
+            <div class="title">
+                <span>KẾT QUẢ TÌM KIẾM</span>
+            </div>
+            <div class="new-product">
+                <%aaa.forEach(function(item){%>
+                    <div class="product-item">
+                        <div class="image-product">
+                            <a href="/detail_/<%= item._id %>">
+                                <img src="<%= item.urlImage %>" alt="image-product"
+                                    style="width: 200px;height:200px">
+                            </a>
+                        </div>
+                        <div class="detail-product">
+                            <div class="name-product">
+                                <span><%= item.name %></span>
+                            </div>
+                            <div class="price-product">
+                                <span class="number"><%= item.price.toLocaleString() %> VNĐ</span>
+                            </div>
+                            <div class="information">
+                                <div class="view text">
+                                    <%= item.view %> views
+                                </div>
+                                <div class="between"></div>
+                                <div class="location text">
+                                    <%= item.location %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <%})%>
+            </div>
+        </div>
+        <%}%>
+        <%}else{%>
+            <%if(temp==0){%>
+                <div class="main-container">
+                    <div class="filter">
+                        <div class="wrap">
+                            <span>Sắp xếp theo</span>
+                            <div class="option">
+                                <div><a href="/filter_view" style="color: black">View</a></div>
+                                <div><a href="/filter_comment" style="color: black">Tương tác</a></div>
+                                <!-- <div><a >Bán chạy</a></div> -->
+                                <div class="filter-price">
+                                    <span>Danh mục</span>
+                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                    <ul class="price-dropdown">
+                                        <li>
+                                            <span><a
+                                                    href="/cat=sach">Sách</a></span>
+                                        </li>
+                                        <li>
+                                            <span><a href="/cat=thoitrang">Thời trang</a></span>
+                                        </li>
+                                        <li>
+                                            <span><a href="/cat=dientu">Điện tử</a></span>
+                                        </li>
+                                        <li>
+                                            <span><a href="/cat=giaydep">Giày dép</a></span>
+                                        </li>
+                                        <li>
+                                            <span><a href="/cat=linhtinh">Linh tinh</a></span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="filter-price">
+                                    <span>Giá</span>
+                                    <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                    <ul class="price-dropdown">
+                                        <li>
+                                            <span><a
+                                                    href="/price=tang">Tăng dần</a></span>
+                                        </li>
+                                        <li>
+                                            <span><a href="/price=giam">Giảm dần</a></span>
+                                        </li>
+                                       
+                                    </ul>
+                                </div>
+                                <div>
+                                    <form class="location" action="/location" method="GET">
+                                        <input type="text" placeholder="Vị trí" name="q">
+                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="title">
+                        <span>TẤT CẢ SẢN PHẨM</span>
+                    </div>
+                    <div class="new-product">
+                        <%aaa.forEach(function(item){%>
+                        <div class="product-item">
+                            <div class="image-product">
+                                <a href="/detail_/<%= item._id %>">
+                                    <img src="<%= item.urlImage %>" alt="image-product" style="width: 200px;height:200px">
+                                </a>
+                            </div>
+                            <div class="detail-product">
+                                <div class="name-product">
+                                    <span><%= item.name %></span>
+                                </div>
+                                <div class="price-product">
+                                    <span class="number"><%= item.price.toLocaleString() %> VNĐ</span>
+                                </div>
+                                <div class="information">
+                                    <div class="view text">
+                                        <%= item.view %> views
+                                    </div>
+                                    <div class="between"></div>
+                                    <div class="location text">
+                                        <%= item.location %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%})%>
+                    </div>
+                    <div class="page-number">
+                        <%if(currentPage==1){%>
+                        <button class="phantrang" hidden><a>&lsaquo;</a></button>
+                        <%}else{%>
+                        <a href="/?page=<%=currentPage-1%>"><button class="phantrang">&lsaquo;</button></a>
+                        <%}%>
+                            <a href="/?page=1"><button class="phantrang" id="demo" onclick="myFunction()">1</button></a>
+                            <a href="/?page=2"><button class="phantrang" id="demo1" onclick="myFunction1()">2</button></a>
+                            <a href="/?page=<%=currentPage+1%>"><button class="phantrang">&rsaquo;</a></button></a>
+                    </div>
+                </div>
+                <%}else{%>
+                <div class="main-container">
+        
+                    <div class="title">
+                        <span>KẾT QUẢ TÌM KIẾM</span>
+                    </div>
+                    <div class="new-product">
+                        <%aaa.forEach(function(item){%>
+                            <div class="product-item">
+                                <div class="image-product">
+                                    <a href="/detail_/<%= item._id %>">
+                                        <img src="<%= item.urlImage %>" alt="image-product"
+                                            style="width: 200px;height:200px">
+                                    </a>
+                                </div>
+                                <div class="detail-product">
+                                    <div class="name-product">
+                                        <span><%= item.name %></span>
+                                    </div>
+                                    <div class="price-product">
+                                        <span class="number"><%= item.price.toLocaleString() %> VNĐ</span>
+                                    </div>
+                                    <div class="information">
+                                        <div class="view text">
+                                            <%= item.view %> views
+                                        </div>
+                                        <div class="between"></div>
+                                        <div class="location text">
+                                            <%= item.location %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <%})%>
+                    </div>
+                </div>
+                <%}%>
+
+        <%}%>
+    </div>
+    <script>
+        function myFunction() {
+            document.getElementById("demo").style.color = "white";
+            document.getElementById("demo").style.background = "red";
+            document.getElementById("demo1").style.color = "black";
+            document.getElementById("demo1").style.background = "white";
+            document.getElementById("demo2").style.color = "black";
+            document.getElementById("demo2").style.background = "white";
+            document.getElementById("demo3").style.color = "black";
+            document.getElementById("demo3").style.background = "white";
+            document.getElementById("demo4").style.color = "black";
+            document.getElementById("demo4").style.background = "white";
+
+        }
+        function myFunction1() {
+            document.getElementById("demo1").style.color = "white";
+            document.getElementById("demo1").style.background = "red";
+            document.getElementById("demo").style.color = "black";
+            document.getElementById("demo").style.background = "white";
+            document.getElementById("demo2").style.color = "black";
+            document.getElementById("demo2").style.background = "white";
+            document.getElementById("demo3").style.color = "black";
+            document.getElementById("demo3").style.background = "white";
+            document.getElementById("demo4").style.color = "black";
+            document.getElementById("demo4").style.background = "white";
+        }
+        function myFunction2() {
+            document.getElementById("demo2").style.color = "white";
+            document.getElementById("demo2").style.background = "red";
+            document.getElementById("demo1").style.color = "black";
+            document.getElementById("demo1").style.background = "white";
+            document.getElementById("demo").style.color = "black";
+            document.getElementById("demo").style.background = "white";
+            document.getElementById("demo3").style.color = "black";
+            document.getElementById("demo3").style.background = "white";
+            document.getElementById("demo4").style.color = "black";
+            document.getElementById("demo4").style.background = "white";
+        }
+        function myFunction3() {
+            document.getElementById("demo3").style.color = "white";
+            document.getElementById("demo3").style.background = "red";
+            document.getElementById("demo1").style.color = "black";
+            document.getElementById("demo1").style.background = "white";
+            document.getElementById("demo2").style.color = "black";
+            document.getElementById("demo2").style.background = "white";
+            document.getElementById("demo").style.color = "black";
+            document.getElementById("demo").style.background = "white";
+            document.getElementById("demo4").style.color = "black";
+            document.getElementById("demo4").style.background = "white";
+        }
+        function myFunction4() {
+            document.getElementById("demo4").style.color = "white";
+            document.getElementById("demo4").style.background = "red";
+            document.getElementById("demo1").style.color = "black";
+            document.getElementById("demo1").style.background = "white";
+            document.getElementById("demo2").style.color = "black";
+            document.getElementById("demo2").style.background = "white";
+            document.getElementById("demo3").style.color = "black";
+            document.getElementById("demo3").style.background = "white";
+            document.getElementById("demo").style.color = "black";
+            document.getElementById("demo").style.background = "white";
+        }
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sharing website | Website chuyên chia sẽ trao đổi các mặc hàng đã qua sử dụng</title>
+    <meta name="keywords" content="share, product, household">
+    <meta charset="UTF-8">
+    <meta name="author" content="Truong NP">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="home-page.nav-bar.css">
+    <link rel="stylesheet" type="text/css" href="checkout.css">
+    <link rel="stylesheet" type="text/css" href="footer.css">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Tangerine" />
+</head>
+
+<body>
+    <div class="main">
+        <div class="nav">
+            <div class="nav-wrapper">
+                <div class="content-wrapper">
+                    <div class="top-nav-content">
+                        <ul class="top-nav-login">
+                            <li>
+                                <a href="/notification/<%= user._id %>">
+                                    <span class="text login">Thông báo</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/chat">
+                                    <span class="text login">Tin nhắn</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/share/<%= user._id %>">
+                                    <span class="text login">Share</span>
+                                </a>
+                            </li>
+                            <li class="profile">
+                                <a href="#">
+                                    <span class="text login">
+                                        <div class="placehold_user">
+                                        </div>
+                                        <div>
+                                            <%=user.local.name||user.facebook.name||user.google.name%>
+                                        </div>
+                                        <ul class="dropdown">
+                                            <li>
+                                                <a href="/profile/<%= user._id %>">Hồ sơ</a>
+                                            </li>
+                                            <li>
+                                                <a href="/shopping-cart/<%= user._id %>">Giỏ hàng</a>
+                                            </li>
+                                            <li>
+                                                <a href="/count/<%= user._id %>">Của tôi</a>
+                                            </li>
+                                            
+                                            <li>
+                                                <a href="/logout">Đăng xuất</a>
+                                            </li>
+                                        </ul>
+                                    </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="logo input">
+                    <div class="logo-input-wrapper">
+                        <div class="logo-input-content">
+                            <a style="font-family: Tangerine,serif;font-size: 40px;color: white" href="/home">The
+                                Sharing</a>
+                        </div>
+                        <div class="logo-input-content">
+                            <form class="example" action="/home/search" method="GET">
+                                <input type="text" placeholder="Search.." name="q">
+                                <button type="submit"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                        <div class="logo-input-content">
+                            <a href="/shopping-cart/<%= user._id %>"><i class="fa fa-shopping-cart"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="name-page">
+                <span>Checkout</span>
+                <span>Sharing</span>
+            </div>
+            <div class="form">
+                <div class="wrapper flex">
+                    <div class="part">
+                        <div class="wrapper">
+                            <form action="/shopping-cart/checkout/<%= user._id %>" method="POST">
+                                <div class="form-control">
+                                    <div class="title">
+                                        <span>Họ tên đầy đủ</span>
+                                    </div>
+                                    <input type="text" name="fullname" value="<%=user.fullname%>" required>
+                                </div>
+                                <div class="form-control">
+                                    <div class="title">
+                                        <span>Số điện thoại</span>
+                                    </div>
+                                    <input type="text" name="phone" value="<%= user.phone %>" required>
+                                </div>
+                                <div class="form-control">
+                                    <div class="title">
+                                        <span>Email</span>
+                                    </div>
+                                    <input type="text"
+                                        value="<%= user.local.email||user.facebook.email||user.google.email %>"
+                                        name="email">
+                                </div>
+                                <div class="form-control">
+                                    <div class="title">
+                                        <span>Địa chỉ</span>
+                                    </div>
+                                    <input type="text" value="<%=user.address%>" name="address" required>
+                                </div>
+                                <div class="form-control">
+                                    <div class="title">
+                                        <span>Lời nhắn (Nếu có)</span>
+                                    </div>
+                                    <input type="text" name="message">
+                                </div>
+                                <div class="form-control btn">
+                                    <div class="title">
+                                    </div>
+                                    <button type="submit">Payment</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="part right">
+                        <div class="wrapper">
+                            <form action="">
+                                <div class="form-control cart title">
+                                    <div class="title bott pr">
+                                        <span>Tên sản phẩm</span>
+                                    </div>
+                                    <div class="title bott">
+                                        <span>Đơn giá</span>
+                                    </div>
+                                    <div class="title bott">
+                                        <span>Số lượng</span>
+                                    </div>
+                                    <div class="title bott">
+                                        <span>Thành tiền</span>
+                                    </div>
+                                </div>
+                                <%var totalprice=0%>
+                                <% product.forEach(function(item) { %>
+
+                                <!-- Cart -->
+
+                                <!-- <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                    <div>
+                                        <h6 class="my-0"></h6>
+                                        <small class="text-muted">Số lượng: </small>
+                                    </div>
+                                    <span class="text-muted"><%= item.price*item.qty %> VNĐ</span>
+                                </li>
+                                <% totalprice = totalprice+ item.price*item.qty %> -->
+
+                                <!-- Cart -->
+
+                                <div class="form-control cart">
+                                    <div class="title bott pr">
+                                        <span><%= item.productName %></span>
+                                    </div>
+                                    <div class="title bott">
+                                        <span><%= item.price %> VNĐ</span>
+                                    </div>
+                                    <div class="title bott">
+                                        <span><%=item.qty%></span>
+                                    </div>
+                                    <div class="title bott number">
+                                        <span><strong><%= item.price*item.qty %> VNĐ</strong></span>
+                                    </div>
+                                </div>
+                                <% }); %>
+                                
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,159 @@
+.main-container{
+    max-width: 1200px;
+    margin: 20px auto 0;
+}
+
+.title{
+    width: 100%;
+    border-radius: .125rem;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,.09);
+    line-height: 2;
+    padding: 5px;
+}
+
+.title span{
+    color: rgb(215,37,11);
+}
+.new-product{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0 50px;
+    width: 1110px;
+}
+
+.product-item{
+    background-color: #fff;
+    width: 200px;
+    height: 300px;
+    margin: 10px;
+    border-radius: .125rem;
+}
+.detail-product{
+    position: relative;
+    padding: 5px;
+}
+.name-product{
+    position: absolute;
+    top: 0px;
+}
+.price-product{
+    position: absolute;
+    bottom: -50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price-product .number{
+    font-size: 20px;
+    color: rgb(215,37,11);
+}
+.information{
+    position: absolute;
+    top: 75px;
+    width: 180px;
+    display: flex;
+    padding: 5px;
+}
+
+.information .text{
+    font-size: 10px;
+    color: #333133aa;
+
+}
+.information .between{
+    flex-grow: 1;
+}
+
+.filter{
+    background-color: #ddd;
+    width: 1170px;
+    height: 50px;
+    margin-top: 10px;
+    padding: 5px 20px;
+}
+
+.filter .wrap{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.filter .option{
+    margin-left: 5px;
+}
+.filter .option div{
+    float: left;
+    height: 30px;
+    padding: 5px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 2px;
+    margin: 0 5px; 
+    display: flex;
+    align-items: center;
+}
+.filter .filter-price{
+    width: 200px;
+    justify-content: space-between;
+    position: relative;
+    display: inline-block;
+}
+.filter .filter-price li{
+    list-style: none;
+}
+
+.filter .price-dropdown{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 5px 5px;
+    margin: 0;
+    top:41px;
+    right:0;
+    text-align: left;
+}
+
+.filter .filter-price:hover .price-dropdown{
+    display: block;
+}
+
+.page-number{
+    display: flex;
+    margin: 5px 0;
+    justify-content: flex-end;
+}
+/* css location */
+.location{
+    display: flex;
+}
+.location input{
+    height: 26px;
+    border-top: 1px;
+    border-bottom: 1px;
+    border-left: 1px;
+    border-right: 0;
+    border-style: solid;
+    border-color: rgba(0,0,0,.14);
+    background: #fff;
+    cursor:auto;
+    text-align: left;
+    margin:0;
+    color: black;
+    flex-grow: 1;
+}
+.location button{
+    height: 30px;
+    width: 30px;
+    border: 1px;
+    border-style: solid;
+    border-color: rgba(0,0,0,.14);
+    background: #fff;
+    cursor:auto;
+    text-align: center;
+    margin:0;
+}

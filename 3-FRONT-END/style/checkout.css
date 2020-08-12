@@ -1,0 +1,131 @@
+.container{
+    margin: 30px auto 0;
+    max-width: 1200px;
+}
+
+.name-page{
+    background-color: rgba(226,95,66,1);
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+    padding: 15px;
+    color: #fff;
+    font-size: 20px;
+}
+.name-page span + span{
+    border-left: 1px solid #fff;
+    padding: 4px;
+}
+/* css cho nội dụng class part */
+.form{
+    margin-top: 15px;
+}
+.form .wrapper{
+    padding: 15px;
+}
+.part{
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+}
+
+.part .form-control{
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+}
+.part .form-control .title{
+    width: 150px;
+    color: rgba(94, 91, 91, 0.8);
+}
+
+.part .form-control input{
+    width: 400px;
+    height: 26px;
+    border: 1px;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: rgba(0,0,0,.14);
+    background: #fff;
+    cursor:auto;
+    text-align: left;
+    padding: 3px;
+    margin:0;
+}
+.part .form-control textarea{
+    width: 400px;
+    height: 50px;
+    border: 1px;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: rgba(0,0,0,.14);
+    background: #fff;
+    cursor:auto;
+    text-align: left;
+    padding: 3px;
+    margin:0;
+    color:rgba(0,0,0,.14);
+}
+.part .form-control button{
+    width: 25%;
+    height: 37px;
+    margin-right: 10px;
+    background-color: rgba(235,80,46,1);
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    font-size: 17px;
+}
+/* dùng flex để chia 2 component ra trái-phải */
+.form .wrapper.flex{
+    display: flex;
+    justify-content: center;
+}
+/* css cho component bên phải */
+.part.right{
+    max-width: 560px;
+    margin-left: 15px;
+    background-color: whitesmoke;
+}
+.part.right .wrapper{
+    background-color: #fff;
+}
+.part .form-control.cart{
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin:0;
+}
+.form-control.cart.title{
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,.14);
+    margin-bottom: 10px;
+}
+
+.part .form-control.cart .bott{
+    margin-bottom: 12px;
+    flex-basis: 100px;
+    flex-grow: 0;
+}
+.part .form-control.cart .title.bott{
+    flex-basis: 110px;
+    flex-grow: 0;
+}
+.part .form-control.cart .title.bott.pr{
+    flex-grow: 1;
+}
+
+.part .form-control.cart .number{
+    color: rgba(235,80,46,1);
+}
+.part .form-control.cart .title{
+    flex-grow: 1;
+}
+
+/* css tổng cộng */
+.part.wrapper{
+    margin-top: 15px;
+    display: flex;
+}
+.part.wrapper .form-control{
+    width: 100%;
+}

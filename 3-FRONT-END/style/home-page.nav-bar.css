@@ -1,0 +1,136 @@
+html {
+  margin: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0px;
+  min-height: 100%;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f5f5f5;
+}
+a{
+  text-decoration: none;
+}
+
+.main{
+  height: 100%;
+}
+.nav{
+  height: 100px;
+}
+.nav-wrapper{
+  padding-top: 10px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(215,37,11,1) 0%, rgba(235,80,46,1) 88%);
+}
+.top-nav-content{
+}
+.top-nav-login{
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  margin: 0px auto;
+  max-width: 1200px;
+  justify-content: flex-end;
+  flex-basis: auto;
+}
+
+/* .top-nav-login .profile {
+  display: flex;
+  justify-content: flex-end;
+} */
+.top-nav-login .profile a .placehold_user{
+float: left;
+height: 18px;
+width: 18px;
+border-radius: 50%;
+background-image:url("https://picsum.photos/18");
+}
+.top-nav-login .profile a .text.login{
+display: flex;
+}
+.text.login{
+  color: white;   
+  margin-left: 10px;
+}
+
+.logo.input{
+  margin-top:10px;
+}
+
+.logo-input-wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.logo-input-content.logo{
+  flex-basis: 169px;
+}
+form.example input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid white;
+  float: left;
+  width: 800px;
+  background: #f1f1f1;
+  border-radius: .125rem 0 0 .125rem;
+}
+
+form.example button {
+  float: left;
+  width: 50px;
+  padding: 10px;
+  background: rgb(215,37,11);
+  background: linear-gradient(180deg, rgba(215,37,11,1) 0%, rgba(226,95,66,1) 45%);    color: white;
+  font-size: 17px;
+  border: 1px solid white;
+  border-left: none;
+  cursor: pointer;
+  border-radius: 0 .125rem .125rem 0;
+}
+
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.fa.fa-shopping-cart{
+  color: white;
+  font-size: 30px;
+}
+
+.dropdown{
+  display: none;
+  list-style: none;
+  background-color: #fff;
+  min-width: 80px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+  position: absolute;
+  top: 30px;
+  right: 103px;
+}
+.top-nav-login .profile .dropdown li{
+  margin-bottom: 20px;
+}
+.top-nav-login .profile .dropdown li a{
+  color: black;
+}
+.top-nav-login .profile .dropdown li:hover a{
+  color: rgb(177, 73, 163);
+}
+.top-nav-login .profile:hover .dropdown{
+  display: block;
+  transition: 0.25s;
+}

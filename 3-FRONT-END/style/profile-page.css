@@ -1,0 +1,311 @@
+.container{
+    max-width: 1230px;
+    margin: 30px auto 0 auto;
+    display: flex;
+}
+/* ảnh đại diện - phía bên trái */
+.left{
+    padding: 0 10px 10px 10px;
+    flex-basis: 236px;
+}
+.left .ava-name{
+    display: flex;
+    border-bottom: 1px solid rgba(0,0,0,.14);
+}
+.left .ava-name div + div{
+    margin-left: 10px;
+    position: relative;
+}
+.left .ava-name span{
+    color: rgba(226,95,66,1);
+    font-size: 17px;
+    position: absolute;
+    top:20px;
+}
+.left img{
+    border-radius: 50%;
+}
+
+.left .notification{
+    margin-top: 10px;
+}
+.left .notification span{
+    color: rgba(226,95,66,1);
+    font-size: 14px;
+}
+.left .list-chat{
+    margin-top: 10px;
+}
+.left .list-chat span{
+    color: rgba(226,95,66,1);
+    font-size: 14px;
+}
+.left .share{
+    margin-top:10px
+}
+.left .share span{
+    color: rgba(226,95,66,1);
+    font-size: 14px;
+}
+/* giao diện cho phần bên phải */
+.right{
+    margin-left: 15px;
+    flex-basis: 979px;
+}
+.right.chat{
+    flex-basis: 600px;
+}
+.right .wrap{
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);
+}
+.right .wrap + .wrap{
+    margin-top: 5px;
+}
+.info .form-control{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+.info .form-control .title{
+    width: 150px;
+    color: rgba(94, 91, 91, 0.8);
+}
+.info input{
+    width: 400px;
+    height: 26px;
+    border: 1px;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: rgba(0,0,0,.14);
+    background: #fff;
+    cursor: auto;
+    text-align: center;
+    margin:0;
+}
+.info .row .btn{
+    flex-grow: 1;
+    display: flex;
+    margin-left: 15px;
+}
+.info .row .btn .confirm{
+    background-color: #fff;
+    color: rgb(99, 113, 235);
+}
+.info .row .btn .del{
+    background-color: #fff;
+    color: rgba(226,95,66,1);
+}
+.info button{
+    flex-basis: 110px;
+    height: 50px;
+    margin-right: 10px;
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    background-color: rgba(226,95,66,1);
+    font-size: 17px;
+    cursor: pointer;
+}
+/* row là property của chat với thông báo */
+.info .row{
+    display: flex;
+    align-items: center;
+}
+.info .row + .row{
+    margin-top: 10px;
+}
+.info .row .date{
+    color: rgba(94, 91, 91, 0.8);
+    margin-right: 15px;
+    flex-basis: 80px;
+}
+
+.info .row .content{
+    flex-basis: 622px;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+}
+.info .row .content .name{
+    color: rgba(235,80,46,1);
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+.info .row .content .number{
+    color: rgba(94, 91, 91, 0.8);
+}
+.info .row .img{
+    margin-right: 10px;
+}
+.info .row .img img{
+    border-radius: 50%;
+}
+/* property của share form */
+/* css cho share form */
+.form-control .filter-price{
+    justify-content: space-between;
+    position: relative;
+    display: flex;
+    border: 1px solid rgba(0,0,0,.14);
+    border-radius: 3px;
+    width: 400px;
+    height: 26px;
+    padding: 1px;
+    align-items: center;
+}
+.form-control .filter-price span{
+    color: rgba(94, 91, 91, 0.8);
+    font-size: 14px;
+}
+
+.form-control .filter-price i{
+    color: rgba(94, 91, 91, 0.8);
+    font-size: 14px;
+}
+.form-control .filter-price li{
+    list-style: none;
+    transition: all 0.2s;
+}
+.form-control .filter-price li:hover{
+    background-color: rgba(235,80,46,1);
+}
+.form-control .filter-price li:hover span{
+    color: #fff;
+}
+
+.form-control .price-dropdown{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    background-color: #fff;
+    width: 394px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 5px 5px;
+    margin: 0;
+    top:30px;
+    right:0;
+    text-align: left;
+    border-radius: 2px;
+    transition: visibility 0s, opacity 0.2s;
+}
+
+.form-control.vt .filter-price:hover .price-dropdown{
+    visibility: visible;
+    opacity: 1;
+}
+/* css cho file input trong trang share form */
+.form-control .file{
+    border: 0;
+    opacity: 0;
+}
+/* css cho shareform */
+/* css chọn file */
+.form-control .file-wrap{
+    position: relative;
+    cursor: pointer;
+    height: 26px;
+    width: 404px;
+}
+.form-control .file-custom{
+    position: absolute;
+    top:0;
+    right: 0;
+    left: 0;
+    height: 26px;
+    padding: 1px;
+    line-height: 1.5;
+    color: rgba(94, 91, 91, 0.8);
+    border: 1px solid rgba(0,0,0,.14);
+    border-radius: 2px
+}
+.form-control .file-custom::before{
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    bottom: -1px;
+    display: block;
+    content: "Browse";
+    height: 26px;
+    padding: 1px;
+    line-height: 1.5;
+    background-color: #eee;
+    color: rgba(94, 91, 91, 0.8);
+    border: 1px solid rgba(0,0,0,.14);
+    border-radius: 0 2px 2px 0;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+}
+.form-control .file-custom::after{
+    content: "Chọn tệp";
+    color: rgba(94, 91, 91, 0.8);
+}
+/* nội dung chat*/
+/* css cho chat-inside.html */
+.info .row.chat{
+    padding: 2px 4px;  
+    border-top-left-radius: 1.3rem;
+    border-top-right-radius: 1.3rem;
+    border-bottom-left-radius: 1.3rem;
+    border-bottom-right-radius: 1.3rem;
+    border: 1px solid rgba(148, 146, 146, 0.8);
+}
+.info .row.chat .img{
+    margin-right: 3px;
+    display:flex;
+}
+
+.info .row.chat .name{
+    font-size: 18px;
+    color: rgba(235,80,46,1);
+    border-right: 1px solid rgba(94, 91, 91, 0.8);
+    padding-right: 5px;
+    margin-right: 5px;
+}
+.wrap-chat{
+    display: flex;
+    margin-top: 5px;
+    align-items: center;
+}
+.wrap-chat .time-chat-inside{
+    color: rgba(17, 10, 10, 0.45);
+    font-size: 12px;
+    flex-grow: 1;
+    text-align: right;
+}
+.info.wrap.chat{
+    overflow: auto;
+    height: 500px;
+}
+.info.wrap .send{
+    height: 30px;
+    width: 100px;
+    background-color:rgba(235,80,46,1);
+    color: #fff;
+    margin: 0;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+.info.wrap .chat-inside{
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    width: 100% ;
+}
+.info.wrap.chat-inside form{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+.info.wrap.chat-inside .input-chat-inside{
+    flex-grow: 1;
+}
